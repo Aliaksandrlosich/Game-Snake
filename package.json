@@ -1,0 +1,19 @@
+{
+  "name": "gamesnake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aliaksandrlosich/Game-Snake.git"
+  },
+  "author": "Aliaksandr Losich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aliaksandrlosich/Game-Snake/issues"
+  },
+  "homepage": "https://github.com/Aliaksandrlosich/Game-Snake#readme"
+}
