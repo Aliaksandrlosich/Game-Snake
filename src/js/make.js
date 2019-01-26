@@ -4,19 +4,19 @@ const zoomOut = document.getElementById('zoomout');
 const reset = document.getElementById("reset");
 const canvas = document.getElementById("canvas");
 const mobile = document.getElementById("mobile");
-const hard = document.getElementById("hard");
-const easy = document.getElementById("easy");
-const normal = document.getElementById("normal");
+const body = document.body;
+const music = document.createElement("audio");
 const ctx = canvas.getContext("2d");
 const w = 20, h = 20;
 let zoom = 100;
-let speed=15;
+let speed;
 document.body.style.zoom=zoom+"%";//zoom settings
 
 
 function init(){
     let dirChange=0;//to fix bug with changing directions
     let direct=0;
+
     addEventListener("keydown", direction);
    
    function direction(e){ //KeyControll
@@ -38,7 +38,7 @@ function init(){
         case 68: if (direct!=3 && direct!=4) {direct=4;dirChange=0;} 
         break; //d
 
-        case 13: init(); 
+        case 13: init();
         break; //restart
 
         case 69: zoomingout(); 
@@ -72,9 +72,9 @@ function init(){
     reset.onclick=init;
 
     function rand(n){
-    let z=Math.round((Math.random()*(n-1))/h)*h;
-    if (z==canvas.height) z-=h;
-    return z;
+        let z=Math.round((Math.random()*(n-1))/h)*h;
+        if (z==canvas.height) z-=h;
+        return z;
 
 }
 //creates a random position from 0 to cvs.height
@@ -85,23 +85,81 @@ function newApple(){
         }
 }
 
+const hard = document.getElementById("hard");
+const easy = document.getElementById("easy");
+const normal = document.getElementById("normal");
+
 function easygame(){
         speed = 15;
+        music.remove();
+        music.setAttribute("src","src/music/music1.mp3");
+        music.setAttribute("autoplay","autoplay")
+        body.appendChild(music);
         return speed;
+
     }
 easy.onclick=easygame;
 
 function normalgame(){
          speed = 9;
+         music.remove();
+         music.setAttribute("src","src/music/music2.mp3");
+         music.setAttribute("autoplay","autoplay")
+         body.appendChild(music);
         return speed;
     }
 normal.onclick=normalgame;
 
 function hardgame(){
         speed = 4;
+        music.remove();
+        music.setAttribute("src","src/music/music3.mp3");
+        music.setAttribute("autoplay","autoplay")
+        body.appendChild(music);
         return speed;
     }
 hard.onclick=hardgame;
+function mobileVersion(){
+    const Manual = document.getElementById("Manual");
+    Manual.remove();
+    const controlls =`<h1 class="manual">Hello!</h1>
+                    <p class="manual">This Mobile Version Snake Game!!!!</p>
+                    <button class="controlButton up" id="up">▲</button>
+                    <div><button class="controlButton left" id="left">◀</button>
+                    <button class="controlButton right" id="right">▶</button></div>
+                    <button class="controlButton down" id="down">▼</button>`;
+    document.querySelector('#MobileControll').innerHTML += controlls;
+    var up=document.getElementById("up");
+    var left=document.getElementById("left");
+    var down=document.getElementById("down");
+    var right=document.getElementById("right");
+    function dirUp(){
+        if(dirChange){
+        if (direct!=2 && direct!=1) {direct=1;dirChange=0;}}
+    }
+    up.onclick=dirUp;
+
+    function dirDown(){
+        if(dirChange){
+        if (direct!=1 && direct!=2) {direct=2; dirChange=0;}}
+    }
+    down.onclick=dirDown;
+
+    function dirLeft(){
+        if(dirChange){
+        if (direct!=4 && direct!=3) {direct=3;dirChange=0;}}
+    }
+    left.onclick=dirLeft;
+
+    function dirRight(){
+        if(dirChange){
+        if (direct!=3 && direct!=4) {direct=4;dirChange=0;}}
+    }
+    right.onclick=dirRight;
+
+}
+mobile.onclick=mobileVersion;
+
 let score=0;
 let l=1;//length of snake
 let xa=rand(canvas.width);//position of apple

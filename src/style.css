@@ -82,3 +82,35 @@ span {
     text-align: center;
     margin: 10px;
 }
+.up{ position: relative;
+    left:40%;
+    width: 60px;
+    height: 60px;
+    background-color:#FF7766;
+}
+
+.left{
+    position: relative;
+    left:20%;
+    margin:0;
+    width: 60px;
+    height: 60px;
+    background-color:#FF7766;
+}
+
+.right{
+    margin:0;
+    position: relative;
+    left:40%;
+    width: 60px;
+    height: 60px;
+    background-color:#FF7766;
+}
+.down{
+    position: relative;
+    left:40%;
+    margin:0;
+    width: 60px;
+    height: 60px;
+    background-color:#FF7766;
+}
