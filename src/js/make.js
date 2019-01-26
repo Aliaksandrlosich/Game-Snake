@@ -1,12 +1,16 @@
-let highscore=0;
-const zoomIn=document.getElementById('zoom');
-const zoomOut=document.getElementById('zoomout');
-const reset=document.getElementById("reset");
-const canvas=document.getElementById("canvas");
-const mobile=document.getElementById("mobile");
-const ctx=canvas.getContext("2d");
-const w=20, h=20;
-let zoom=100;
+let highscore = 0;
+const zoomIn = document.getElementById('zoom');
+const zoomOut = document.getElementById('zoomout');
+const reset = document.getElementById("reset");
+const canvas = document.getElementById("canvas");
+const mobile = document.getElementById("mobile");
+const hard = document.getElementById("hard");
+const easy = document.getElementById("easy");
+const normal = document.getElementById("normal");
+const ctx = canvas.getContext("2d");
+const w = 20, h = 20;
+let zoom = 100;
+let speed=15;
 document.body.style.zoom=zoom+"%";//zoom settings
 
 
@@ -72,22 +76,40 @@ function init(){
     if (z==canvas.height) z-=h;
     return z;
 
-}//creates a random position from 0 to cvs.height
+}
+//creates a random position from 0 to cvs.height
 function newApple(){
     xa=rand(canvas.width); ya=rand(canvas.height);
     for (var i=0;i<=l-1;i+=1){
         if (snake[i][0]==xa && snake[i][1]==ya) newApple();
         }
 }
-var score=0;
-var l=1;//length of snake
-var xa=rand(canvas.width);//position of apple
-var ya=rand(canvas.height);
-var times=0;
-var speed=15; //controls the speed of the game(larger number - slower game)
-var x=canvas.width/2-w;
-var y=canvas.height/2-h;//center position
-var snake=[[]];
+
+function easygame(){
+        speed = 15;
+        return speed;
+    }
+easy.onclick=easygame;
+
+function normalgame(){
+         speed = 9;
+        return speed;
+    }
+normal.onclick=normalgame;
+
+function hardgame(){
+        speed = 4;
+        return speed;
+    }
+hard.onclick=hardgame;
+let score=0;
+let l=1;//length of snake
+let xa=rand(canvas.width);//position of apple
+let ya=rand(canvas.height);
+let times=0;
+let x=canvas.width/2-w;
+let y=canvas.height/2-h;//center position
+let snake=[[]];
 snake[0][0]=x;
 snake[0][1]=y;//coordinates of snakes body
 function draw(){
@@ -127,14 +149,18 @@ function draw(){
             }//checks if snake bumps in itself
         }
         ctx.fillStyle="red";
-        ctx.strokeStyle="black";
+        switch (speed){
+                case 4: ctx.strokeStyle="red"; break;
+                case 9: ctx.strokeStyle="blue"; break;
+                case 15: ctx.strokeStyle="green"; break;
+            }
         ctx.fillRect(xa,ya,w,h);//draws an apple
         ctx.strokeRect(xa,ya,w,h);
         ctx.fillStyle="green";
         for (var i=l-1;i>=0;i-=1){
             ctx.fillRect(snake[i][0],snake[i][1],w,h);ctx.strokeRect(snake[i][0],snake[i][1],w,h);
         }//draws the snake
-        ctx.strokeStyle="white";
+        ctx.strokeStyle="black";
         ctx.font = '20px Arial';
         ctx.strokeText("Score="+score,5,20);//prints the score
         times+=1;

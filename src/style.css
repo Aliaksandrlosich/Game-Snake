@@ -10,7 +10,6 @@
 }
 
 .controlButton {
-    background-color:#22FF66;
     border:1px 1px #00FD55;
     border-radius: 10px;
     outline:none;
@@ -28,6 +27,23 @@ span {
     color: #332244;
 }
 
+.easy{
+    width:70px;
+    margin-left:40px;
+    background-color: #00ff00;
+}
+.hard{
+    width:70px;
+    margin-left:25px;
+    background-color:#ff0000;
+}
+.normal{
+    width:70px;
+    margin-left:40px;
+    background-color: #0000ff;
+}
+
+
 .canvas {
     margin-top:5px;
     margin-left:10px;
@@ -36,22 +52,26 @@ span {
 }
 
 .reset{
+    background-color:#22FF66;
     width:50px;
     margin-left:40px;
 }
 
 .zoom{
+    background-color:#22FF66;
     width:25px;
     margin-left:36px;
     margin-right:0;
 }
 
 .zoomout{
+    background-color:#22FF66;
     width:25px;
     margin-left:0;
 }
 
 .mobile {
+    background-color:#22FF66;
 
 }
 
