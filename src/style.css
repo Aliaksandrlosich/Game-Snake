@@ -59,14 +59,14 @@ span {
 
 .zoom{
     background-color:#22FF66;
-    width:25px;
+    width:30px;
     margin-left:36px;
     margin-right:0;
 }
 
 .zoomout{
     background-color:#22FF66;
-    width:25px;
+    width:30px;
     margin-left:0;
 }
 
@@ -84,8 +84,8 @@ span {
 }
 .up{ position: relative;
     left:40%;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background-color:#FF7766;
 }
 
@@ -93,8 +93,8 @@ span {
     position: relative;
     left:20%;
     margin:0;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background-color:#FF7766;
 }
 
@@ -102,15 +102,15 @@ span {
     margin:0;
     position: relative;
     left:40%;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background-color:#FF7766;
 }
 .down{
     position: relative;
     left:40%;
     margin:0;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background-color:#FF7766;
 }
