@@ -83,7 +83,7 @@ span {
     margin: 10px;
 }
 .up{ position: relative;
-    left:40%;
+    left:35%;
     width: 100px;
     height: 100px;
     background-color:#FF7766;
@@ -91,7 +91,7 @@ span {
 
 .left{
     position: relative;
-    left:20%;
+    left:10%;
     margin:0;
     width: 100px;
     height: 100px;
@@ -101,14 +101,14 @@ span {
 .right{
     margin:0;
     position: relative;
-    left:40%;
+    left:30%;
     width: 100px;
     height: 100px;
     background-color:#FF7766;
 }
 .down{
     position: relative;
-    left:40%;
+    left:35%;
     margin:0;
     width: 100px;
     height: 100px;
